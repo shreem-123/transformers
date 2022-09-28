@@ -139,9 +139,11 @@ jobs:
       - name: Save job name
         if: ${{ always() }}
         shell: bash
-        run: | 
+        run: |
           matrix_folders=${matrix_folders/'models_'/'models/'}
-          echo "Model tests ($matrix_folders, ${{ matrix.machine_type }})" > /transformers/reports/${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }}/job_name.txt
+          job_name="Model tests ($matrix_folders, ${{ matrix.machine_type }})"
+          echo "$job_name"
+          echo "$job_name" > /transformers/reports/${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }}/job_name.txt
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
@@ -199,9 +201,11 @@ jobs:
       - name: Save job name
         if: ${{ always() }}
         shell: bash
-        run: | 
+        run: |
           matrix_folders=${matrix_folders/'models_'/'models/'}
-          echo "Model tests ($matrix_folders, ${{ matrix.machine_type }})" > /transformers/reports/${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }}/job_name.txt
+          job_name="Model tests ($matrix_folders, ${{ matrix.machine_type }})"
+          echo "$job_name"
+          echo "$job_name" > /transformers/reports/${{ matrix.machine_type }}_tests_gpu_${{ matrix.folders }}/job_name.txt
 
       - name: Test suite reports artifacts
         if: ${{ always() }}
