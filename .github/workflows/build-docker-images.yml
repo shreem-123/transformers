@@ -3,7 +3,7 @@ name: Build docker images (scheduled)
 on:
   push:
     branches:
-      - docker-image*
+      - run_add_bs4
   repository_dispatch:
   workflow_call:
     inputs:
@@ -41,7 +41,7 @@ jobs:
           context: ./docker/transformers-all-latest-gpu
           build-args: |
             REF=main
-          push: true
+          push: false
           tags: huggingface/transformers-all-latest-gpu${{ inputs.image_postfix }}
 
   latest-with-torch-nightly-docker:
@@ -70,8 +70,8 @@ jobs:
           build-args: |
             REF=main
             PYTORCH=pre
-          push: true
-          tags: huggingface/transformers-all-latest-torch-nightly-gpu
+          push: false
+
 
   latest-torch-deepspeed-docker:
     name: "Latest PyTorch + DeepSpeed"
@@ -96,8 +96,8 @@ jobs:
           context: ./docker/transformers-pytorch-deepspeed-latest-gpu
           build-args: |
             REF=main
-          push: true
-          tags: huggingface/transformers-pytorch-deepspeed-latest-gpu${{ inputs.image_postfix }}
+          push: false
+
 
   nightly-torch-deepspeed-docker:
     name: "Nightly PyTorch + DeepSpeed"
@@ -124,8 +124,8 @@ jobs:
           context: ./docker/transformers-pytorch-deepspeed-nightly-gpu
           build-args: |
             REF=main
-          push: true
-          tags: huggingface/transformers-pytorch-deepspeed-nightly-gpu
+          push: false
+
 
   doc-builder:
     name: "Doc builder"
@@ -150,8 +150,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./docker/transformers-doc-builder
-          push: true
-          tags: huggingface/transformers-doc-builder
+          push: false
+
 
   latest-pytorch:
     name: "Latest PyTorch [dev]"
@@ -178,8 +178,8 @@ jobs:
           context: ./docker/transformers-pytorch-gpu
           build-args: |
             REF=main
-          push: true
-          tags: huggingface/transformers-pytorch-gpu
+          push: false
+
 
   latest-tensorflow:
     name: "Latest TensorFlow [dev]"
@@ -206,5 +206,4 @@ jobs:
           context: ./docker/transformers-tensorflow-gpu
           build-args: |
             REF=main
-          push: true
-          tags: huggingface/transformers-tensorflow-gpu
+          push: false
