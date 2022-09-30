@@ -5,6 +5,7 @@ deps = {
     "Pillow": "Pillow",
     "accelerate": "accelerate>=0.10.0",
     "black": "black==22.3",
+    "beautifulsoup4": "beautifulsoup4",
     "codecarbon": "codecarbon==1.2.0",
     "cookiecutter": "cookiecutter==1.7.3",
     "dataclasses": "dataclasses",
