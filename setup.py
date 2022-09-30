@@ -99,6 +99,7 @@ _deps = [
     "Pillow",
     "accelerate>=0.10.0",
     "black==22.3",  # after updating to black 2023, also update Python version in pyproject.toml to 3.7
+    "bs4",
     "codecarbon==1.2.0",
     "cookiecutter==1.7.3",
     "dataclasses",
@@ -237,6 +238,7 @@ class DepsTableUpdateCommand(Command):
 
 extras = {}
 
+extras["bs4"] = deps_list("bs4")
 extras["ja"] = deps_list("fugashi", "ipadic", "unidic_lite", "unidic")
 extras["sklearn"] = deps_list("scikit-learn")
 
@@ -321,6 +323,7 @@ extras["all"] = (
     + extras["timm"]
     + extras["codecarbon"]
     + extras["accelerate"]
+    + extras["bs4"]
 )
 
 # Might need to add doc-builder and some specific deps in the future
@@ -345,6 +348,7 @@ extras["dev-torch"] = (
     + extras["sklearn"]
     + extras["modelcreation"]
     + extras["onnxruntime"]
+    + extras["bs4"]
 )
 extras["dev-tensorflow"] = (
     extras["testing"]
