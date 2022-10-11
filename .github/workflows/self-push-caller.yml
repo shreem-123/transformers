@@ -4,7 +4,8 @@ name: Self-hosted runner (push-caller)
 on:
   push:
     branches:
-      - main
+      - debug_push_ci_1
+      - debug_push_ci_2
     paths:
       - "src/**"
       - "tests/**"
